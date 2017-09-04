@@ -93,8 +93,8 @@ switch ($_SERVER['SERVER_NAME'])
 {
     case 'localhost' :
     default :
-        define('BASEURL', "http://localhost/os2/");
-        define('WEB_URL', "http://localhost/os2/");
+        define('BASEURL', "http://dev.os.local/");
+        define('WEB_URL', "http://dev.os.local/");
         define('IMG_ROOT', BASEURL.'img/');
 }
 /*

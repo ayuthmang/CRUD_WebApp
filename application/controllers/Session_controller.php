@@ -13,24 +13,29 @@ class Session_controller extends Base_controller
 	{
 		parent::__construct();
 		$this->load->model('Session_model');
-	}
-
-	function login()
-	{
-
+		$this->load->library('session');
 	}
 
 	function authen()
 	{
 		// https://stackoverflow.com/questions/18821492/code-igniter-how-to-return-json-response-from-controller
 		$param = $this->get_params();
-		$user = $param['acc_user'];
-		$pass = $param['acc_pass'];
-
-		// echo !'';
+		$user = isset($param['acc_user']) ? $param['acc_user'] : false;
+		$pass = isset($param['acc_pass']) ? $param['acc_pass'] : false;
 
 		$res = $this->Session_model->get_authen($user, $pass);
 		$result = $this->init_result($res);
+		if (!$res) {
+			$result['status_code'] = Status::ERR_AUTHEN_INVALID;
+			$result['status_message'] = Status::ERR_AUTHEN_INVALID_MSG;
+		}
+
+		$userdata = array(
+			$username = $user,
+		);
+		// $this->session->set_userdata($userdata);
+		$result['redirect'] = 'create';
+
 		return $this->output
 		            ->set_content_type('application/json')
 		            ->set_status_header(200)

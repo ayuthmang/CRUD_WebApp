@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require_once APPPATH . '/const/status_const.php';
+
 class Base_controller extends CI_Controller {
 
 	/**
@@ -20,15 +22,7 @@ class Base_controller extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('themes/' . MAINTHEME .  '/login');
-	}
-
-	public function login()
-	{
-		$param = $this->get_params();
-		return exit(json_encode($param));
-		// $result = $this->init_result(false);
-		// return exit(json_encode($result));
+		$this->load->view('welcome_message');
 	}
 
 	function return_json($param, $result) {
