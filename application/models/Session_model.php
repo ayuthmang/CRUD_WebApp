@@ -12,7 +12,9 @@ class Session_model extends Base_model
 	function __construct()
 	{
         parent::__construct();
+        $this->load->model('Utility_model');
 	}
+
 
 	function get_authen($username = '', $password = '') {
 		
@@ -25,6 +27,6 @@ class Session_model extends Base_model
 			return false;
 		}
 
-		return ($password == $query->row()->password);
+		return $this->Utility_model->isMatchPassword($password, $query->row()->password);
 	}
 }

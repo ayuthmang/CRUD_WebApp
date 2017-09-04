@@ -15,6 +15,6 @@ class Utility_model extends Base_model
 	}
 
 	function isMatchPassword($input_pass, $db_pass) {
-		
+		return ($input_pass == $db_pass);
 	}
 }

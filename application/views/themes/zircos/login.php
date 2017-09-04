@@ -8,7 +8,7 @@
 
         <!-- App favicon -->
         <link rel="icon" type="image/png" href="<?php echo IMG_ASSET; ?>icon_logo.png" />        <!-- App title -->
-        <title>CAPMA</title>
+        <title>CRUD Web App</title>
         
         <!-- App css -->
         <link href="<?php echo MAINTHEME_ASSET; ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
