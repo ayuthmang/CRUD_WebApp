@@ -59,7 +59,7 @@ File: Chartjs
                 {
                     label: "Sales Analytics",
                     fill: false,
-                    lineTension: 0.1,
+                    lineTension: 0.2,
                     backgroundColor: "#f5707a",
                     borderColor: "#f5707a",
                     borderCapStyle: 'butt',
@@ -152,10 +152,10 @@ File: Chartjs
             datasets: [
                 {
                     label: "Sales Analytics",
-                    backgroundColor: "rgba(127, 193, 252, 0.3)",
-                    borderColor: "#7fc1fc",
+                    backgroundColor: "#188ae2",
+                    borderColor: "#188ae2",
                     borderWidth: 1,
-                    hoverBackgroundColor: "rgba(127, 193, 252, 0.6)",
+                    hoverBackgroundColor: "#188ae2",
                     hoverBorderColor: "#7fc1fc",
                     data: [65, 59, 80, 81, 56, 55, 40,20]
                 }

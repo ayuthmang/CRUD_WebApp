@@ -145,7 +145,7 @@ function($) {
     "use strict";
 
     var App = function() {
-        this.VERSION = "1.0.0",
+        this.VERSION = "1.3.0",
         this.AUTHOR = "Coderthemes",
         this.SUPPORT = "coderthemes@gmail.com",
         this.pageScrollElement = "html, body",
@@ -278,9 +278,9 @@ function initscrolls(){
       $('.slimscrollleft').slimScroll({
           height: 'auto',
           position: 'right',
-          size: "5px",
-          color: '#dcdcdc',
-          wheelStep: 5
+          size: "7px",
+          color: '#bbb',
+          wheelStep: 7
       });
   }
 }
@@ -304,5 +304,28 @@ $(document).ready(function() {
             $(this).parent().parent().prev().addClass("active"); // add active class to an anchor
             $(this).parent().parent().prev().click(); // click the item to make it drop
         }
+    });
+});
+
+(function($) {
+    var dropdown = $('#setting-dropdown');
+
+    // Add slidedown animation to dropdown
+    dropdown.on('show.bs.dropdown', function(e){
+        $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+    });
+
+    // Add slideup animation to dropdown
+    dropdown.on('hide.bs.dropdown', function(e){
+        $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+    });
+})(jQuery);
+
+// Loader
+$(window).load(function() {
+    $('#status').fadeOut();
+    $('#preloader').delay(350).fadeOut('slow');
+    $('body').delay(350).css({
+        'overflow': 'visible'
     });
 });
