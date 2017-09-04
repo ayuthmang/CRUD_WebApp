@@ -6,18 +6,19 @@ $(document).ready(function () {
 			'acc_user': $('#acc_user').val(),
 			'acc_pass': $('#acc_pass').val()
 		}
-		var url = APP_PATH + 'index.php/ajax_login';
+		var url = APP_PATH + 'ajax_login';
 
 		$.post(url, data, function(result) {
 			console.log(result);
-			// console.log(result.result);
-			if (result.result) {
-				console.log('result is true');
-			} else {
-				console.log('result is false');
-			}
-		})
-	})
 
+			if (result.result) {
+				location.assign(result.redirect);				
+			} else {
+				swal(result.status_message, '', 'error');
+			}
+		}).fail(function (result) {
+			console.log("ERROR: " + result);
+		});
+	})
 
 })
