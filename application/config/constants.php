@@ -90,4 +90,3 @@ define('MAINTHEME_ASSET',BASEURL.'assets/themes/'.MAINTHEME.'/');
 define('JS_ASSET',BASEURL.'asset/js/');
 define('CSS_ASSET',BASEURL.'asset/css/');
 define('IMG_ASSET',BASEURL.'asset/img/');
-define('APP_DIRNAME','station5_files');
