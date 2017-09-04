@@ -12,8 +12,14 @@ class Session_controller extends Base_controller
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->helper('form');
+		$this->load->helper('url');
 		$this->load->model('Session_model');
-		$this->load->library('session');
+	}
+
+	function logout() {
+		$this->session->sess_destroy();
+		redirect(BASEURL . 'login');
 	}
 
 	function authen()
@@ -28,13 +34,14 @@ class Session_controller extends Base_controller
 		if (!$res) {
 			$result['status_code'] = Status::ERR_AUTHEN_INVALID;
 			$result['status_message'] = Status::ERR_AUTHEN_INVALID_MSG;
+		} else {
+			$result['redirect'] = 'create';
 		}
 
 		$userdata = array(
-			$username = $user,
+			'username' => $user,
 		);
-		// $this->session->set_userdata($userdata);
-		$result['redirect'] = 'create';
+		$this->session->set_userdata($userdata);
 
 		return $this->output
 		            ->set_content_type('application/json')

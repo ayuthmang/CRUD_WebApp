@@ -1,3 +1,4 @@
+<?php $profile = $this->session->userdata(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -95,12 +96,12 @@
 
                                 <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
                                     <li>
-                                        <h5>Hi, John</h5>
+                                        <h5><?php echo $this->session->userdata('username'); ?></h5>
                                     </li>
                                     <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
                                     <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
                                     <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
-                                    <li><a href="javascript:void(0)"><i class="ti-power-off m-r-5"></i> Logout</a></li>
+                                    <li><a href="<?php echo BASEURL;?>logout""><i class="ti-power-off m-r-5"></i> Logout</a></li>
                                 </ul>
                             </li>
 
@@ -125,7 +126,7 @@
                             </div>
                             <div class="user-info">
                                 <div>
-                                    <a href="#setting-dropdown" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Users <span class="mdi mdi-menu-down"></span></a>
+                                    <a href="#setting-dropdown" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <?php echo $this->session->userdata('username'); ?> <span class="mdi mdi-menu-down"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +136,7 @@
                                 <li><a href="javascript:void(0)"><i class="mdi mdi-face-profile m-r-5"></i> Profile</a></li>
                                 <li><a href="javascript:void(0)"><i class="mdi mdi-account-settings-variant m-r-5"></i> Settings</a></li>
                                 <li><a href="javascript:void(0)"><i class="mdi mdi-lock m-r-5"></i> Lock screen</a></li>
-                                <li><a href="javascript:void(0)"><i class="mdi mdi-logout m-r-5"></i> Logout</a></li>
+                                <li><a href="<?php echo BASEURL;?>logout"><i class="mdi mdi-logout m-r-5"></i> Logout</a></li>
                             </ul>
                         </div>
 
@@ -163,7 +164,7 @@
                 <!-- Start content -->
                 <div class="content">
                     <div class="container">
-                    
+
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="page-title-box">
@@ -180,6 +181,20 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div> <!-- container -->
 
                 </div> <!-- content -->
