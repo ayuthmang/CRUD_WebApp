@@ -54,4 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 # pages
+$route['login'] = 'Page_controller/login';
+$route['create'] = 'Page_controller/create';
+
+# ajax
 $route['ajax_login'] = 'Session_controller/authen';
