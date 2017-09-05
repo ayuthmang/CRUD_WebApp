@@ -25,6 +25,8 @@
         <link href="<?php echo MAINTHEME_ASSET; ?>assets/css/responsive.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="<?php echo MAINTHEME_ASSET; ?>plugins/switchery/switchery.min.css">
 
+        <script>var APP_PATH = '<?php echo BASEURL; ?>';</script>
+
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -182,9 +184,35 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-sm-12">
+                                
+                                <div class="card-box table-responsive">
 
+                                    <h4 class="m-t-0 header-title"><b>All Products</b></h4>
+                                    <p class="text-muted font-13 m-b-30">
+                                        All products in database.
+                                    </p>
 
+                                    <table id="datatable-responsive"
+                                    class="table table-striped table-colored table-info dt-responsive nowrap"
+                                    cellspacing="0"
+                                    width="100%">
+                                        <thead>
+                                        </thead>
 
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="">
+                                        <button id="btn_refresh" type="button" class="btn btn-success waves-effect w-md waves-light m-b-5">Refresh</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </div>
 
 
 
@@ -272,6 +300,10 @@
         <script src="<?php echo MAINTHEME_ASSET; ?>assets/js/jquery.slimscroll.js"></script>
         <script src="<?php echo MAINTHEME_ASSET; ?>assets/js/jquery.scrollTo.min.js"></script>
         <script src="<?php echo MAINTHEME_ASSET; ?>plugins/switchery/switchery.min.js"></script>
+
+        <!-- Sweet-Alert  -->
+<!--         <script src="<?php echo MAINTHEME_ASSET; ?>plugins/bootstrap-sweetalert/sweet-alert.min.js"></script>
+        <script src="<?php echo MAINTHEME_ASSET; ?>assets/pages/jquery.sweet-alert.init.js"></script> -->
 
         <!-- Counter js  -->
         <script src="<?php echo MAINTHEME_ASSET; ?>plugins/waypoints/jquery.waypoints.min.js"></script>
