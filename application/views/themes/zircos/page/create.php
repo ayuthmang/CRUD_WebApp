@@ -25,6 +25,9 @@
         <link href="<?php echo MAINTHEME_ASSET; ?>assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="<?php echo MAINTHEME_ASSET; ?>plugins/switchery/switchery.min.css">
 
+        <!-- Sweet Alert -->
+        <link href="<?php echo MAINTHEME_ASSET; ?>plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css">
+
         <script>var APP_PATH = '<?php echo BASEURL; ?>';</script>
 
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -274,6 +277,10 @@
         <script src="<?php echo MAINTHEME_ASSET; ?>assets/js/jquery.slimscroll.js"></script>
         <script src="<?php echo MAINTHEME_ASSET; ?>assets/js/jquery.scrollTo.min.js"></script>
         <script src="<?php echo MAINTHEME_ASSET; ?>plugins/switchery/switchery.min.js"></script>
+
+        <!-- Sweet-Alert  -->
+        <script src="<?php echo MAINTHEME_ASSET; ?>plugins/bootstrap-sweetalert/sweet-alert.min.js"></script>
+        <script src="<?php echo MAINTHEME_ASSET; ?>assets/pages/jquery.sweet-alert.init.js"></script>
 
         <!-- Counter js  -->
         <script src="<?php echo MAINTHEME_ASSET; ?>plugins/waypoints/jquery.waypoints.min.js"></script>
