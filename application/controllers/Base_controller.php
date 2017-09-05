@@ -32,14 +32,9 @@ class Base_controller extends CI_Controller {
 		}
 	}
 
-	function return_json($param, $result) {
+	function return_json($result) {
 	    $this->output->set_content_type('application/json');
-
-	    if (isset($param['callback'])) {
-	        $this->output->set_output($this->set_jsonp($param['callback'], $result));
-	    } else {
-	        $this->output->set_output(json_encode($result));
-	    }
+		$this->output->set_output(json_encode($result));
 	}
 
     function get_params() {

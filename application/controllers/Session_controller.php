@@ -41,9 +41,6 @@ class Session_controller extends Base_controller
 		);
 		$this->session->set_userdata($userdata);
 
-		return $this->output
-		            ->set_content_type('application/json')
-		            ->set_status_header(200)
-		            ->set_output(json_encode($result));
+		$this->return_json($result);
 	}
 }
