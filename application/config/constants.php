@@ -87,6 +87,6 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 define('APPNAME',':: Skelaton Application ::');
 define('MAINTHEME','zircos');
 define('MAINTHEME_ASSET',BASEURL.'assets/themes/'.MAINTHEME.'/');
-define('JS_ASSET',BASEURL.'asset/js/');
-define('CSS_ASSET',BASEURL.'asset/css/');
-define('IMG_ASSET',BASEURL.'asset/img/');
+define('JS_ASSET',BASEURL.'assets/js/');
+define('CSS_ASSET',BASEURL.'assets/css/');
+define('IMG_ASSET',BASEURL.'assets/img/');
