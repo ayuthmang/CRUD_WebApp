@@ -25,4 +25,24 @@ class Page_controller extends Base_controller
 		$this->check_login();
 		$this->load->view('themes/' . MAINTHEME .  '/page/create');
 	}
+	
+	function read()
+	{
+		$this->check_login();
+		$this->load->view('themes/' . MAINTHEME .  '/page/read');
+	}
+
+	function update()
+	{
+		$this->check_login();
+		$this->load->view('themes/' . MAINTHEME .  '/page/update');
+	}
+
+	function delete()
+	{
+		$this->check_login();
+		$this->load->view('themes/' . MAINTHEME .  '/page/delete');
+	}
+
+
 }

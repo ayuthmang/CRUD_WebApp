@@ -188,13 +188,6 @@
 
 
 
-
-
-
-
-
-
-
                     </div> <!-- container -->
 
                 </div> <!-- content -->
@@ -295,5 +288,6 @@
         <script src="<?php echo MAINTHEME_ASSET; ?>assets/js/jquery.core.js"></script>
         <script src="<?php echo MAINTHEME_ASSET; ?>assets/js/jquery.app.js"></script>
 
+        <script src="<?php echo JS_ASSET; ?>pages/create.js"></script>
     </body>
 </html>
