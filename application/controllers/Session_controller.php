@@ -12,8 +12,6 @@ class Session_controller extends Base_controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('form');
-		$this->load->helper('url');
 		$this->load->model('Session_model');
 	}
 

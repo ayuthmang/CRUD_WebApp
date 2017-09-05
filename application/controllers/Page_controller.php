@@ -22,6 +22,7 @@ class Page_controller extends Base_controller
 
 	function create()
 	{
+		$this->check_login();
 		$this->load->view('themes/' . MAINTHEME .  '/page/create');
 	}
 }

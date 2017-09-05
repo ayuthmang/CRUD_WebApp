@@ -22,7 +22,14 @@ class Base_controller extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->check_login();
 		$this->load->view('welcome_message');
+	}
+
+	function check_login() {
+		if (!$this->session->userdata('username')) {
+			redirect(BASEURL . 'login');
+		}
 	}
 
 	function return_json($param, $result) {
