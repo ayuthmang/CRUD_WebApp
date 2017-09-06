@@ -15,14 +15,17 @@ class Product_controller extends Base_controller
 		$this->load->model('Product_model');
 	}
 
-	function ajax_get_all_products()
+	/**
+	 *
+	 */
+	function ajax_get_product()
 	{
 		$param = $this->get_params();
 		$res = $this->Product_model->getProduct($param['prod_id']);
 		if (!count($res)) {
 			$res = $this->init_result(false);
-			$res['status_code'] = Status::ERR_NO_PRODUCT_DATA;
-			$res['status_message'] = Status::ERR_NO_PRODUCT_DATA_MSG;
+			$res['status_code'] = Status::ERR_NO_PRODUCT_IN_DB;
+			$res['status_message'] = Status::ERR_NO_PRODUCT_IN_DB_MSG;
 			return $this->return_json($res);
 		}
 
@@ -58,6 +61,22 @@ class Product_controller extends Base_controller
 		$param = $this->get_params();
 		$prod = $param['prod_id'];
 		$res = $this->Product_model->delProduct($prod);
+		return $this->return_json($this->init_result($res));
+	}
+
+	function ajax_update_product()
+	{
+		$param = $this->get_params();
+		$prod = array(
+			'prod_id' => $param['prod_id'],
+			'name' => $param['prod_name'],
+			'detail' => $param['prod_detail'],
+			'picture' => isset($param['prod_picture']) ? $param['prod_picture'] : null,
+			'price' => isset($param['prod_price']) ? $param['prod_price'] : 0,
+			'piece' => isset($param['prod_piece']) ? $param['prod_piece'] : 0,
+		);
+		$res = $this->Product_model->updateProduct($prod);
+
 		return $this->return_json($this->init_result($res));
 	}
 

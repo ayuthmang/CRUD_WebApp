@@ -30,6 +30,14 @@ class Product_model extends Base_model
 		return $this->db->get()->result_array();
 	}
 
+	function updateProduct($prod = array())
+	{
+		$this->db->set($prod);
+		$this->db->where('prod_id', $prod['prod_id']);
+		$this->db->update('products');
+		return $this->db->affected_rows();
+	}
+
 	function addProduct($prod = array())
 	{
 		if (!$prod) return false;
