@@ -7,6 +7,15 @@ var columns = [
 	{id: 'piece', name: 'Piece'},
 ];
 
+var ori_prod = {
+	'prod_id': '',
+	'name': '',
+	'detail': '',
+	'picture': '',
+	'price': '',
+	'piece': ''
+}
+
 $('document').ready(function () {
 	init_table();
 	refresh_table();
@@ -18,9 +27,50 @@ $('document').ready(function () {
 	})
 
 	$('#btn_delete').click(function () {
-		del_product();
+		if (!$('#del_prod_id').val()) {
+			swal('กรุณาใส่ Product id ที่ต้องการจะลบ', '', 'error');
+			return;
+		}
+		disabled_update_field();
+		del_product($('#del_prod_id').val());
 	})
+
+	$('#btn_cancel').click(function () {
+		restore_update_field();
+	})
+
+	$('#btn_update').click(function () {
+		update_product();
+	})
+
+	$('#update_prod_id').keypress(function (event) {
+		if (event.which === 13) {
+
+			if ($('#update_prod_id') == '') {
+				swal('กรุณาใส่ Product id', '', 'error');
+				return;
+			}
+			disabled_update_field();
+			get_product($('#update_prod_id').val());
+		}
+	});
+
+	$('#del_prod_id').keypress(function (event) {
+		if (event.which === 13) {
+			// tbc bugs
+			// if (!$('#del_prod_id').val()) {
+			// 	swal('กรุณาใส่ Product id ที่ต้องการจะลบ', '', 'error');
+			// 	return;
+			// }
+			// disabled_update_field();
+			// del_product($('#del_prod_id').val());
+		}
+	});
 })
+
+/**
+ * read segment
+ */
 
 function init_table() {
 	var tb_parent = $('#datatable-responsive');
@@ -49,7 +99,7 @@ function add_data_to_table(data) {
 
 function refresh_data() {
 
-	var url = APP_PATH + 'ajax_get_all_products';
+	var url = APP_PATH + 'ajax_get_product';
 	var data = {prod_id: 'all'};
 	$.post(url, data, function (result) {
 		console.log(result); // dbg
@@ -74,11 +124,11 @@ function refresh_table() {
 /**
  * delete segment
  */
-function del_product() {
+function del_product(prod_id) {
 
 	var url = APP_PATH + 'ajax_delete_product';
 	var data = {
-		prod_id: $('#prod_id').val(),
+		prod_id: prod_id,
 		// prod_name: $('#prod_name').val()	
 	};
 	console.log(data);
@@ -94,4 +144,102 @@ function del_product() {
 	}).fail(function (result) {
 		console.log("ERROR: " + result);
 	});
+}
+
+/**
+ * update segment
+ */
+
+function enabled_update_field() {
+	$('#update_prod_id, #update_prod_name, #update_prod_detail, #update_prod_picture, #update_prod_price, #update_prod_piece').attr('disabled', false)
+}
+
+function disabled_update_field() {
+	$('#update_prod_id, #update_prod_name, #update_prod_detail, #update_prod_picture, #update_prod_price, #update_prod_piece').attr('disabled', true)
+}
+
+function get_product(prod_id) {
+	
+	var url = APP_PATH + 'ajax_get_product';
+	var data = {
+		prod_id: prod_id
+	};
+	$.post(url, data, function (result) {
+		console.log(result); // dbg
+		if (result.result) {
+			backup_update_field(result.data[0]);
+			restore_update_field();
+
+		} else {
+			reset_update_field();
+			swal(result.status_message, '', 'error');
+		}
+		enabled_update_field();
+
+	}).fail(function (result) {
+		console.log("ERROR: " + result);
+		enabled_update_field();
+	});
+}
+
+function update_product() {
+	
+	var url = APP_PATH + 'ajax_update_product';
+	var data = {
+		prod_id: $('#update_prod_id').val(),
+		prod_name: $('#update_prod_name').val(),
+		prod_detail: $('#update_prod_detail').val(),
+		prod_picture: $('#update_prod_picture').val(),
+		prod_price: $('#update_prod_price').val(),
+		prod_piece: $('#update_prod_piece').val(),
+	};
+	disabled_update_field();
+	$.post(url, data, function (result) {
+		console.log(result); // dbg
+		if (result.result) {
+			swal('ทำการอัพเดทข้อมูลสำเร็จ', '', 'success');
+			reset_update_field();
+		} else {
+			swal('อัพเดทข้อมูลไม่สำเร็จ', '', 'error');
+		}
+		enabled_update_field();
+
+	}).fail(function (result) {
+		console.log("ERROR: " + result);
+		enabled_update_field();
+	});
+}
+
+function reset_update_field() {
+	ori_prod['prod_id'] = '';
+	ori_prod['name'] = '';
+	ori_prod['detail'] = '';
+	ori_prod['picture'] = '';
+	ori_prod['price'] = '';
+	ori_prod['piece'] = '';
+	$('#update_prod_id').val('');
+	$('#update_prod_name').val('');
+	$('#update_prod_detail').val('');
+	$('#update_prod_picture').val('');
+	$('#update_prod_price').val('');
+	$('#update_prod_piece').val('');
+}
+
+function backup_update_field(data) {
+	console.log(data);
+	ori_prod['prod_id'] = data['prod_id'];
+	ori_prod['name'] = data['name'];
+	ori_prod['detail'] = data['detail'];
+	ori_prod['picture'] = data['picture'];
+	ori_prod['price'] = data['price'];
+	ori_prod['piece'] = data['piece'];
+}
+
+function restore_update_field() {
+	$('#update_prod_id').val(ori_prod['prod_id']);
+	$('#update_prod_name').val(ori_prod['name']);
+	$('#update_prod_detail').val(ori_prod['detail']);
+	$('#update_prod_picture').val(ori_prod['picture']);
+	$('#update_prod_price').val(ori_prod['price']);
+	$('#update_prod_piece').val(ori_prod['piece']);
 }

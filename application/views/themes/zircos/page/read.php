@@ -217,7 +217,57 @@
 
                         </div>
 
-                        <div class="col-md-4 col-md-offset-4">
+                        <div class="col-md-6">
+                            <div class="card-box">
+                                <h4 class="m-t-0 m-b-30 header-title"><b>Update Product</b></h4>
+                                <div class="row">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label"> Product id</label>
+                                            <div class="col-md-10">
+                                                <input id="update_prod_id" type="text" class="form-control" value="" placeholder="Product name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label"> Name</label>
+                                            <div class="col-md-10">
+                                                <input id="update_prod_name" type="text" class="form-control" value="" placeholder="Product name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">Detail</label>
+                                            <div class="col-md-10">
+                                                <input id="update_prod_detail" type="text" class="form-control" value="" placeholder="Product detail">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">Picture</label>
+                                            <div class="col-md-10">
+                                                <input id="update_prod_picture" type="text" class="form-control" value="" placeholder="Product picture">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">Price</label>
+                                            <div class="col-md-10">
+                                                <input id="update_prod_price" type="text" class="form-control" value="" placeholder="Product price">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">Piece</label>
+                                            <div class="col-md-10">
+                                                <input id="update_prod_piece" type="text" class="form-control" value="" placeholder="Product piece">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-offset-2">
+                                            <button id="btn_update" type="button" class="btn btn-success waves-effect w-md waves-light m-b-5">Update Product</button>
+                                            <button id="btn_cancel" type="button" class="btn btn-danger waves-effect w-md waves-light m-b-5">Cancel</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
                             <div class="card-box">
                                 <h4 class="m-t-0 m-b-30 header-title"><b>Delete Product</b></h4>
                                 <div class="row">
@@ -225,7 +275,7 @@
                                         <div class="form-group">
                                             <label class="col-md-2 control-label"> Product id</label>
                                             <div class="col-md-10">
-                                                <input id="prod_id" type="text" class="form-control" value="" placeholder="Product id">
+                                                <input id="del_prod_id" type="text" class="form-control" value="" placeholder="Product id">
                                             </div>
                                         </div>
                                         <!-- <div class="form-group">
