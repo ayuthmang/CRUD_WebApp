@@ -217,7 +217,30 @@
 
                         </div>
 
-
+                        <div class="col-md-4 col-md-offset-4">
+                            <div class="card-box">
+                                <h4 class="m-t-0 m-b-30 header-title"><b>Delete Product</b></h4>
+                                <div class="row">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label"> Product id</label>
+                                            <div class="col-md-10">
+                                                <input id="prod_id" type="text" class="form-control" value="" placeholder="Product id">
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <label class="col-md-2 control-label"> Product id</label>
+                                            <div class="col-md-10">
+                                                <input id="prod_name" type="text" class="form-control" value="" placeholder="Product name">
+                                            </div>
+                                        </div> -->
+                                        <div class="col-md-offset-2">
+                                            <button id="btn_delete" type="button" class="btn btn-danger waves-effect w-md waves-light m-b-5">Delete</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
 
                     </div> <!-- container -->
 

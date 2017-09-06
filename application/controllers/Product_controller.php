@@ -42,7 +42,6 @@ class Product_controller extends Base_controller
 			'price' => isset($param['prod_price']) ? $param['prod_price'] : 0,
 			'piece' => isset($param['prod_piece']) ? $param['prod_piece'] : 0,
 		);
-		$this->_toast_not_die($prod);
 		if ($this->isProductExist($prod['name'])) {
 			$result = $this->init_result(false);
 			$result['status_code'] = Status::ERR_PRODUCT_DUPLICATE;
@@ -54,8 +53,18 @@ class Product_controller extends Base_controller
 		return $this->return_json($this->init_result($res));
 	}
 
+	function ajax_delete_product()
+	{
+		$param = $this->get_params();
+		$prod = $param['prod_id'];
+		$res = $this->Product_model->delProduct($prod);
+		return $this->return_json($this->init_result($res));
+	}
+
 	function isProductExist($prod_name)
 	{
 		return $this->Product_model->isProductExist($prod_name);
 	}
+
+
 }

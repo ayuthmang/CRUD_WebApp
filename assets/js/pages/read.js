@@ -7,6 +7,21 @@ var columns = [
 	{id: 'piece', name: 'Piece'},
 ];
 
+$('document').ready(function () {
+	init_table();
+	refresh_table();
+
+	window.tb_content = $("#datatable-responsive tbody");
+
+	$('#btn_refresh').click(function () {
+		refresh_data();
+	})
+
+	$('#btn_delete').click(function () {
+		del_product();
+	})
+})
+
 function init_table() {
 	var tb_parent = $('#datatable-responsive');
 	tb_parent.html('');
@@ -56,13 +71,27 @@ function refresh_table() {
 	refresh_data();
 }
 
-$('document').ready(function () {
-	init_table();
-	refresh_table();
+/**
+ * delete segment
+ */
+function del_product() {
 
-	window.tb_content = $("#datatable-responsive tbody");
+	var url = APP_PATH + 'ajax_delete_product';
+	var data = {
+		prod_id: $('#prod_id').val(),
+		// prod_name: $('#prod_name').val()	
+	};
+	console.log(data);
+	$.post(url, data, function (result) {
+		console.log(result); // dbg
+		if (result.result) {
+			swal('ทำการลบ Product สำเร็จ', '', 'success');
+			refresh_table();
+		} else {
+			swal(result.status_message, '', 'error');
+		}
 
-	$('#btn_refresh').click(function () {
-		refresh_data();
-	})
-})
+	}).fail(function (result) {
+		console.log("ERROR: " + result);
+	});
+}

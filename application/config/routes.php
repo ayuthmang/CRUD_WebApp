@@ -65,3 +65,4 @@ $route['logout'] = 'Session_controller/logout';
 $route['ajax_login'] = 'Session_controller/authen';
 $route['ajax_get_all_products'] = 'Product_controller/ajax_get_all_products';
 $route['ajax_add_product'] = 'Product_controller/ajax_add_product';
+$route['ajax_delete_product'] = 'Product_controller/ajax_delete_product';
