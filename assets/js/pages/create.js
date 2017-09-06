@@ -28,7 +28,7 @@ function add_product() {
 	$.post(url, data, function (result) {
 		console.log(result); // dbg
 		if (result.result) {
-			console.log('success');
+			swal('ทำการเพิ่ม Product สำเร็จ', '', 'success');
 		} else {
 			swal(result.status_message, '', 'error');
 		}

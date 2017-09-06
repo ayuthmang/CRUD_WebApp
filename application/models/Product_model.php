@@ -11,7 +11,7 @@ class Product_model extends Base_model
 {
 	function isProductExist($prod_name)
 	{
-		$sql = "select * from products where name = $prod_name";
+		$sql = "select * from products where name = '$prod_name'";
 		$query = $this->db->query($sql);
 		$row = $query->row();
 		return isset($row);
