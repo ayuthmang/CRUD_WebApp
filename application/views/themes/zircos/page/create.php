@@ -169,11 +169,10 @@
                 <!-- Start content -->
                 <div class="content">
                     <div class="container">
-
                         <div class="row">
-                            <div class="col-xs-12">
+                            <div class="col-sm-12">
                                 <div class="page-title-box">
-                                    <h4 class="page-title">Create </h4>
+                                    <h4 class="page-title">Create</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Home</a>
@@ -186,11 +185,53 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- end row -->
+
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="card-box">
+                                <h4 class="m-t-0 header-title"><b>Add Product</b></h4>
+                                <div class="row">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label"> Name</label>
+                                            <div class="col-md-10">
+                                                <input id="prod_name" type="text" class="form-control" value="" placeholder="Product name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">Detail</label>
+                                            <div class="col-md-10">
+                                                <input id="prod_detail" type="text" class="form-control" value="" placeholder="Product detail">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">Picture</label>
+                                            <div class="col-md-10">
+                                                <input id="prod_picture" type="text" class="form-control" value="" placeholder="Product picture">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">Price</label>
+                                            <div class="col-md-10">
+                                                <input id="prod_price" type="text" class="form-control" value="" placeholder="Product price">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">Piece</label>
+                                            <div class="col-md-10">
+                                                <input id="prod_piece" type="text" class="form-control" value="" placeholder="Product piece">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-offset-2">
+                                            <button id="btn_add" type="button" class="btn btn-success waves-effect w-md waves-light m-b-5">Add Product</button>
+                                            <button id="btn_clear" type="button" class="btn btn-danger waves-effect w-md waves-light m-b-5">Clear</button>
+                                        </div>
+                                    </form>
 
 
-
-
-
+                                </div>
+                            </div>
+                        </div>
 
 
                     </div> <!-- container -->
