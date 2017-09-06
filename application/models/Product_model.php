@@ -39,4 +39,13 @@ class Product_model extends Base_model
 
 		return false;
 	}
+
+	function delProduct($prod_id)
+	{
+		$sql = "delete from products where prod_id = '$prod_id'";
+		$query = $this->db->query($sql);
+
+		$row = $this->db->affected_rows();
+		return $row == '1';
+	}
 }
