@@ -9,9 +9,12 @@ require_once APPPATH . 'models/Base_model.php';
 */
 class Product_model extends Base_model
 {
-	function isProductExist($prod_id)
+	function isProductExist($prod_name)
 	{
-		# code...
+		$sql = "select * from products where name = $prod_name";
+		$query = $this->db->query($sql);
+		$row = $query->row();
+		return isset($row);
 	}
 
 	function getProduct($prod_id = 'all')
@@ -25,5 +28,15 @@ class Product_model extends Base_model
 		$this->db->from('products');
 		$this->db->where('prod_id', $prod_id);
 		return $this->db->get()->result_array();
+	}
+
+	function addProduct($prod = array())
+	{
+		if (!$prod) return false;
+		$this->db->insert('products', $prod);
+
+		if ($this->db->affected_rows() == '1') return true;
+
+		return false;
 	}
 }
