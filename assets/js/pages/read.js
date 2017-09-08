@@ -31,7 +31,6 @@ $('document').ready(function () {
 			swal('กรุณาใส่ Product id ที่ต้องการจะลบ', '', 'error');
 			return;
 		}
-		disabled_update_field();
 		del_product($('#del_prod_id').val());
 	})
 
