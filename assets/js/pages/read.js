@@ -23,7 +23,7 @@ $('document').ready(function () {
 	window.tb_content = $("#datatable-responsive tbody");
 
 	$('#btn_refresh').click(function () {
-		refresh_data();
+		refresh_table();
 	})
 
 	$('#btn_delete').click(function () {
@@ -36,6 +36,7 @@ $('document').ready(function () {
 	})
 
 	$('#btn_cancel').click(function () {
+		clear_update_field();
 		restore_update_field();
 	})
 
@@ -57,13 +58,13 @@ $('document').ready(function () {
 
 	$('#del_prod_id').keypress(function (event) {
 		if (event.which === 13) {
-			// tbc bugs
-			// if (!$('#del_prod_id').val()) {
-			// 	swal('กรุณาใส่ Product id ที่ต้องการจะลบ', '', 'error');
-			// 	return;
-			// }
-			// disabled_update_field();
-			// del_product($('#del_prod_id').val());
+			event.preventDefault();	// workaround fix bug
+			if (!$('#del_prod_id').val()) {
+				swal('กรุณาใส่ Product id ที่ต้องการจะลบ', '', 'error');
+				return;
+			}
+			disabled_update_field();
+			del_product($('#del_prod_id').val());
 		}
 	});
 })
@@ -110,6 +111,7 @@ function refresh_data() {
 			}
 		} else {
 			swal(result.status_message, '', 'error');
+			init_table();
 		}
 
 	}).fail(function (result) {
@@ -136,10 +138,10 @@ function del_product(prod_id) {
 		console.log(result); // dbg
 		if (result.result) {
 			swal('ทำการลบ Product สำเร็จ', '', 'success');
-			refresh_table();
 		} else {
 			swal(result.status_message, '', 'error');
 		}
+		refresh_table();
 
 	}).fail(function (result) {
 		console.log("ERROR: " + result);
@@ -199,6 +201,7 @@ function update_product() {
 		if (result.result) {
 			swal('ทำการอัพเดทข้อมูลสำเร็จ', '', 'success');
 			reset_update_field();
+			refresh_table();
 		} else {
 			swal('อัพเดทข้อมูลไม่สำเร็จ', '', 'error');
 		}
@@ -226,7 +229,6 @@ function reset_update_field() {
 }
 
 function backup_update_field(data) {
-	console.log(data);
 	ori_prod['prod_id'] = data['prod_id'];
 	ori_prod['name'] = data['name'];
 	ori_prod['detail'] = data['detail'];
@@ -242,4 +244,13 @@ function restore_update_field() {
 	$('#update_prod_picture').val(ori_prod['picture']);
 	$('#update_prod_price').val(ori_prod['price']);
 	$('#update_prod_piece').val(ori_prod['piece']);
+}
+
+function clear_update_field() {
+	$('#update_prod_id').val('');
+	$('#update_prod_name').val('');
+	$('#update_prod_detail').val('');
+	$('#update_prod_picture').val('');
+	$('#update_prod_price').val('');
+	$('#update_prod_piece').val('');
 }
