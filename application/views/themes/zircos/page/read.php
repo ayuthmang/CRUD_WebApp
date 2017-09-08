@@ -10,7 +10,7 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="<?php echo MAINTHEME_ASSET; ?>assets/images/favicon.ico">
         <!-- App title -->
-        <title>Zircos - Responsive Admin Dashboard Template</title>
+        <title>CRUD - Read + Update + Delete</title>
 
         <!--Morris Chart CSS -->
         <link rel="stylesheet" href="<?php echo MAINTHEME_ASSET; ?>plugins/morris/morris.css">
@@ -173,13 +173,13 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="page-title-box">
-                                    <h4 class="page-title">Read </h4>
+                                    <h4 class="page-title">Read + Update + Delete</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Home</a>
                                         </li>
                                         <li class="active">
-                                            Read
+                                            Read + Update + Delete
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -260,7 +260,7 @@
                                         </div>
                                         <div class="col-md-offset-2">
                                             <button id="btn_update" type="button" class="btn btn-success waves-effect w-md waves-light m-b-5">Update Product</button>
-                                            <button id="btn_cancel" type="button" class="btn btn-danger waves-effect w-md waves-light m-b-5">Cancel</button>
+                                            <button id="btn_cancel" type="button" class="btn btn-danger waves-effect w-md waves-light m-b-5">Restore Data</button>
                                         </div>
                                     </form>
                                 </div>

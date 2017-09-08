@@ -23,7 +23,7 @@ class Base_controller extends CI_Controller {
 	public function index()
 	{
 		$this->check_login();
-		$this->load->view('welcome_message');
+		redirect(BASEURL . 'read');
 	}
 
 	function check_login() {
