@@ -260,7 +260,7 @@
                                         </div>
                                         <div class="col-md-offset-2">
                                             <button id="btn_update" type="button" class="btn btn-success waves-effect w-md waves-light m-b-5">Update Product</button>
-                                            <button id="btn_cancel" type="button" class="btn btn-danger waves-effect w-md waves-light m-b-5">Cancel</button>
+                                            <button id="btn_cancel" type="button" class="btn btn-danger waves-effect w-md waves-light m-b-5">Restore Data</button>
                                         </div>
                                     </form>
                                 </div>
