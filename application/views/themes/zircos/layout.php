@@ -10,7 +10,7 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="<?php echo MAINTHEME_ASSET; ?>assets/images/favicon.ico">
         <!-- App title -->
-        <title>Zircos - Responsive Admin Dashboard Template</title>
+        <title>CRUD Web App</title>
 
         <!--Morris Chart CSS -->
         <link rel="stylesheet" href="<?php echo MAINTHEME_ASSET; ?>plugins/morris/morris.css">
