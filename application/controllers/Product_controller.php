@@ -24,8 +24,8 @@ class Product_controller extends Base_controller
 		$res = $this->Product_model->getProduct($param['prod_id']);
 		if (!count($res)) {
 			$res = $this->init_result(false);
-			$res['status_code'] = Status::ERR_NO_PRODUCT_IN_DB;
-			$res['status_message'] = Status::ERR_NO_PRODUCT_IN_DB_MSG;
+			$res['status_code'] = Status::ERR_PRODUCT_NOT_FOUND;
+			$res['status_message'] = Status::ERR_PRODUCT_NOT_FOUND_MSG;
 			return $this->return_json($res);
 		}
 

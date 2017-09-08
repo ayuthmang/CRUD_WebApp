@@ -31,7 +31,6 @@ $('document').ready(function () {
 			swal('กรุณาใส่ Product id ที่ต้องการจะลบ', '', 'error');
 			return;
 		}
-		disabled_update_field();
 		del_product($('#del_prod_id').val());
 	})
 
@@ -90,6 +89,10 @@ function add_data_to_table(data) {
 	console.log(data);
 	var str = '<tr>';
 	for (var i = 0; i < columns.length; i++) {
+		if (i === 3) {
+			str += '<td align="center"><img src="' + APP_PATH + data[columns[i]['id']] + '" style="width:200px;height:200px;"></td>';
+			continue;
+		}
 		str += '<td>';
 		str += data[columns[i]['id']];
 		str += '</td>';
