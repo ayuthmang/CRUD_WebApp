@@ -207,7 +207,7 @@
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">Picture</label>
                                             <div class="col-md-10">
-                                                <input id="prod_picture" type="text" class="form-control" value="" placeholder="Product picture">
+                                                <input id="prod_picture" type="text" class="form-control" value="assets/themes/zircos/assets/images/icons/questions.svg" placeholder="Product picture" disabled>
                                             </div>
                                         </div>
                                         <div class="form-group">
